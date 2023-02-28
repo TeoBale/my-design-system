@@ -2,12 +2,15 @@
 import { createTheme, ThemeProvider} from "@mui/material/styles";
 import {ThemeProvider as EmotionThemeProvider} from "@emotion/react";
 import {useMemo, useState} from "react";
+import CssBaseline from '@mui/material/CssBaseline';
 
 import palette from "./base/palette"
 import shape from "./base/shape"
 import typography from "./base/typography";
 import breakpoints from "./base/breakpoints";
 import shadows, { customShadows } from "./base/shadows";
+
+import GlobalStyles from "./base/globalStyles";
 
 
 const ThemeConfig = ({ children }) => {
@@ -30,6 +33,7 @@ const ThemeConfig = ({ children }) => {
     return (
         <EmotionThemeProvider theme={theme}>
             <ThemeProvider theme={theme}>
+
                 { children }
             </ThemeProvider>
         </EmotionThemeProvider>
