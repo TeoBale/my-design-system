@@ -10,7 +10,9 @@ import typography from "./base/typography";
 import breakpoints from "./base/breakpoints";
 import shadows, { customShadows } from "./base/shadows";
 
-import GlobalStyles from "./base/globalStyles";
+import componentsOverride from "./overrides";
+
+//import GlobalStyles from "./base/globalStyles";
 
 
 const ThemeConfig = ({ children }) => {
@@ -29,11 +31,12 @@ const ThemeConfig = ({ children }) => {
     );
 
     const theme = createTheme(themeOptions);
+    theme.components = componentsOverride(theme);
 
     return (
         <EmotionThemeProvider theme={theme}>
             <ThemeProvider theme={theme}>
-
+                <CssBaseline/>
                 { children }
             </ThemeProvider>
         </EmotionThemeProvider>
